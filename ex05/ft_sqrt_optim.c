@@ -12,22 +12,39 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 int	ft_sqrt(int nb);
 
 int	ft_sqrt(int nb)
 {
-	int	i;
+	int ceiling;
+	int	floor;
+	int explorer;
 
-	if (nb <= 0)
+	if (nb <= 0 || 2147395600 <= nb)
 		return (0);
-	i = 0;
-	while ((i * i) < nb && i <= 46340)
-		i++;
-	if (i * i == nb)
-		return (i);
+	else if (nb == 1)
+		return (1);
+	floor = 2;
+	ceiling = 46340;
+	while (ceiling - floor > 2)
+	{
+		explorer = (ceiling + floor) / 2;
+		if (explorer * explorer == nb)
+			return (explorer);
+		else if (explorer * explorer < nb)
+			floor = explorer;
+		else if (nb < explorer * explorer)
+			ceiling = explorer;
+	}
+	if (ceiling * ceiling == nb)
+		return (ceiling);
+	else if (floor * floor == nb)
+		return (floor);
 	else
 		return (0);
+	
 }
 
 int main(int argc, char **argv)
@@ -35,3 +52,26 @@ int main(int argc, char **argv)
 	(void)argc;
     printf("%d",ft_sqrt(atoi(argv[1])));
 }
+// int main(void)
+// {
+// 	int n = 0;
+// 	int found;
+// 	clock_t t;
+// 	double time_taken;
+// 	clock_t t_launch;
+// 	t_launch = clock();
+// 	while (1)
+// 	{	
+// 		found = ft_sqrt(n);
+// 		if (found)
+// 		{	
+			
+// 			t = clock() - t;
+// 			time_taken = ((double)t)/CLOCKS_PER_SEC;
+// 			printf("\t%fs\t%fs\t#     %d \t-> sqrt() ->\t %d     #\n", ((double)(clock() - t_launch))/CLOCKS_PER_SEC, time_taken, n, found);
+// 			t = clock();
+// 		}
+// 		n++;
+// 	}
+
+// }

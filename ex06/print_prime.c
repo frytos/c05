@@ -1,37 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: argrouss <argrouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:56:42 by argrouss          #+#    #+#             */
-/*   Updated: 2024/02/21 04:22:22 by argrouss         ###   ########.fr       */
+/*   Created: 2024/02/21 04:47:56 by argrouss          #+#    #+#             */
+/*   Updated: 2024/02/21 04:58:00 by argrouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_sqrt(int nb);
+int	ft_is_prime(int nb);
 
-int	ft_sqrt(int nb)
+int	ft_is_prime(int nb)
 {
 	int	i;
-
-	if (nb <= 0)
+	
+	if (nb <= 1)
 		return (0);
-	i = 0;
-	while ((i * i) < nb && i <= 46340)
+	i = 2;
+	while (i <= nb / 2)
+	{
+		if (nb % i == 0)
+			return (0);
 		i++;
-	if (i * i == nb)
-		return (i);
-	else
-		return (0);
+	}
+	return (1);
 }
 
-int main(int argc, char **argv)
+void print_prime(void)
 {
-	(void)argc;
-    printf("%d",ft_sqrt(atoi(argv[1])));
+	unsigned long long explorer;
+	unsigned long long n;
+
+	explorer = 0;
+	n = 0;
+
+	while(1)
+	{
+		if(ft_is_prime(explorer))
+		{
+			n++;
+			printf("--#-- %llu   -> %llu\n", n, explorer);
+		}
+		explorer ++;
+	}
+}
+
+int main(void)
+{
+	print_prime();
 }

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: argrouss <argrouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:56:42 by argrouss          #+#    #+#             */
-/*   Updated: 2024/02/21 04:22:22 by argrouss         ###   ########.fr       */
+/*   Created: 2024/02/20 14:22:40 by argrouss          #+#    #+#             */
+/*   Updated: 2024/02/20 14:54:57 by argrouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_sqrt(int nb);
+long long	ft_fibonacci(long long index);
 
-int	ft_sqrt(int nb)
+long long	ft_fibonacci(long long index)
 {
-	int	i;
-
-	if (nb <= 0)
-		return (0);
-	i = 0;
-	while ((i * i) < nb && i <= 46340)
-		i++;
-	if (i * i == nb)
-		return (i);
+	if (index > 1)
+		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 	else
-		return (0);
+		return (index);
 }
 
-int main(int argc, char **argv)
-{
-	(void)argc;
-    printf("%d",ft_sqrt(atoi(argv[1])));
-}
+// int	main(long long argc, char *argv[])
+// {
+// 	printf("fib(%s) = %d", argv[argc -1], ft_fibonacci(atoi(argv[1])));
+// }
