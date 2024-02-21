@@ -24,15 +24,17 @@ int	ft_is_prime(int nb)
 	
 	if (nb <= 1)
 		return (0);
-	else if (nb == 2)
+	else if (nb <= 3)
 		return (1);
-	i = 3;
+	if (nb % 2 == 0 || nb % 3 == 0)
+		return (0);
+	i = 5;
 	nb_sqrt = ft_sqrt_ceil(nb);
 	while (i <= nb_sqrt)
 	{
-		if (nb % i == 0)
+		if (nb % i == 0 || (nb + 2) % i == 0)
 			return (0);
-		i += 2;
+		i += 6;
 	}
 	return (1);
 }
@@ -46,7 +48,7 @@ int	ft_sqrt_ceil(int nb)
 	else if (nb > 2147395600)
 		return (46341);
 	i = 0;
-	while ((i * i) < nb && i <= 46340)
+	while ((i * i) < nb)
 		i++;
 	return (i);
 }
