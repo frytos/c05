@@ -101,7 +101,7 @@ int	ft_sqrt_ceil(int nb)
 // 		t = clock();
 // 		duration = (double)(clock() - t_launch)/CLOCKS_PER_SEC;
 // 		printf("%3.2f\t%d\t%d\t%f10\n", 
-//			duration, n, ft_find_next_prime(n), time_taken);
+// 			duration, n, ft_find_next_prime(n), time_taken);
 // 	}
 // }
 // int main(void)
