@@ -15,21 +15,61 @@
 #include <time.h>
 
 int	ft_is_prime(int nb);
+int	ft_sqrt_ceil(int nb);
+int	reduce_windows_and_get_sqrt(int nb, int floor, int ceiling, int explorer);
 
 int	ft_is_prime(int nb)
 {
 	int	i;
+	int	nb_sqrt;
 
 	if (nb <= 1)
 		return (0);
-	i = 2;
-	while (i < nb)
+	else if (nb <= 3)
+		return (1);
+	if (nb % 2 == 0 || nb % 3 == 0)
+		return (0);
+	i = 5;
+	nb_sqrt = ft_sqrt_ceil(nb);
+	
+	while (i <= nb_sqrt)
 	{
 		if (nb % i == 0)
 			return (0);
-		i++;
+		i += 2;
 	}
 	return (1);
+}
+
+int	ft_sqrt_ceil(int nb)
+{
+	int	ceiling;
+	int	floor;
+	int	explorer;
+
+	if (nb <= 0 || 2147395600 < nb)
+		return (0);
+	else if (nb == 1)
+		return (1);
+	floor = 2;
+	ceiling = 46340;
+	explorer = 23171;
+	return (reduce_windows_and_get_sqrt(nb, floor, ceiling, explorer));
+}
+
+int	reduce_windows_and_get_sqrt(int nb, int floor, int ceiling, int explorer)
+{
+	while (ceiling - floor > 2)
+	{
+		explorer = (ceiling + floor) / 2;
+		if (explorer * explorer == nb)
+			return (explorer);
+		else if (explorer * explorer < nb)
+			floor = explorer;
+		else if (nb < explorer * explorer)
+			ceiling = explorer;
+	}
+	return (ceiling);
 }
 
 // int	main(int argc, char **argv)
