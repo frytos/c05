@@ -16,22 +16,16 @@ int	ft_recursive_power(int nb, int power);
 
 int	ft_recursive_power(int nb, int power)
 {
-	int	result;
-
 	if (power > 0)
-	{
-		result = ft_recursive_power(nb, power - 1);
-		return (result * nb);
-	}
+		return (ft_recursive_power(nb, power - 1) * nb);
 	else if (power == 0)
 		return (1);
 	else
 		return (0);
-	return (result);
 }
 
 // int	main(int argc, char *argv[])
 // {
-// 	printf("pow(%s, %s) = %d", argv[argc - 2], argv[argc - 1], 
+// 	printf("pow(%s, %s) = %d\n", argv[argc - 2], argv[argc - 1], 
 // 		ft_recursive_power(atoi(argv[1]), atoi(argv[2])));
 // }
