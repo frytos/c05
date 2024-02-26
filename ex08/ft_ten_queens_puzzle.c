@@ -14,57 +14,56 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ft_ten_queens_puzzle(int size);
-void	put_queen(int *position, int queen, int *ptr_nb_sol, int size);
-int	get_pos(int j, int *position);
-int	is_ok(int *position, int queen, int i, int size);
+int		ft_ten_queens_puzzle(void);
+void	put_queen(int *position, int queen, int *ptr_res);
+int		get_pos(int j, int *position);
+int		is_safe(int *position, int queen, int i);
 void	ft_putchar(char c);
 
-int	ft_ten_queens_puzzle(int size)
+int	ft_ten_queens_puzzle(void)
 {
-	int 	position[size];
-	int	nb_sol;
-	int *ptr_nb_sol;
-	int i;
+	int	position[10];
+	int	res;
+	int	*ptr_res;
+	int	i;
 
-	nb_sol = 0;
-	ptr_nb_sol = &nb_sol;
+	res = 0;
+	ptr_res = &res;
 	i = 0;
-	while (i < size)
+	while (i < 10)
 		position[i++] = -1;
-	put_queen(position, 0, ptr_nb_sol, size);
-
-	return (nb_sol);
+	put_queen(position, 0, ptr_res);
+	return (res);
 }
 
-void	put_queen(int *position, int queen, int *ptr_nb_sol, int size)
+void	put_queen(int *position, int queen, int *ptr_res)
 {
-	int	i;
-	int p;
+	int	col;
+	int	p;
 
-	i = 0;
-	while (i < size)
+	col = 0;
+	while (col < 10)
 	{
-		if (position[i] < 0 && is_ok(position, queen, i, size))
+		if (position[col] < 0 && is_safe(position, queen, col))
 		{
-			position[i] = queen;
-			if (queen < size - 1)
-				put_queen(position, queen + 1, ptr_nb_sol, size);
+			position[col] = queen;
+			if (queen < 9)
+				put_queen(position, queen + 1, ptr_res);
 			else
 			{
-				*ptr_nb_sol = *ptr_nb_sol + 1; 
+				(*ptr_res)++;
 				p = 0;
-				while (p < size)
+				while (p < 10)
 					ft_putchar(position[p++] + '0');
 				write(1, "\n", 1);
 			}
-			position[i] = -1;
+			position[col] = -1;
 		}
-		i++;
+		col++;
 	}
 }
 
-int	is_ok(int *position, int queen, int i, int size)
+int	is_safe(int *position, int queen, int col)
 {
 	int	j;
 	int	k;
@@ -77,9 +76,9 @@ int	is_ok(int *position, int queen, int i, int size)
 	{
 		k = get_pos(j, position);
 		m = 0;
-		while (m < size - j)
+		while (m < 10 - j)
 		{
-			if ((j + m) == queen && ((k + m) == i || (k - m) == i))
+			if ((j + m) == queen && ((k + m) == col || (k - m) == col))
 				return (0);
 			m++;
 		}
@@ -90,12 +89,12 @@ int	is_ok(int *position, int queen, int i, int size)
 
 int	get_pos(int j, int *position)
 {
-	int	k;
+	int	col;
 
-	k = 0;
-	while (position[k] != j)
-		k++;
-	return (k);
+	col = 0;
+	while (position[col] != j)
+		col++;
+	return (col);
 }
 
 void	ft_putchar(char c)
@@ -103,8 +102,9 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	main(int argc, char *argv[])
-{
-	ft_ten_queens_puzzle(atoi(argv[1]));
-	return (0);
-}
+// int	main(int argc, char *argv[])
+// {
+// 	int n = ft_ten_queens_puzzle();
+// 	printf("Nb of solutions : %d", n);
+// 	return (0);
+// }
