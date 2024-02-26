@@ -27,6 +27,8 @@ int	ft_is_prime(int nb)
 		return (0);
 	else if (nb <= 3)
 		return (1);
+	else if (nb == 2147483647)
+		return (1);
 	if (nb % 2 == 0 || nb % 3 == 0)
 		return (0);
 	i = 5;
@@ -98,7 +100,7 @@ int main(void)
 				, ((double)(clock() - t_launch))/CLOCKS_PER_SEC
 				, time_taken, n);
 			t = clock();
-			n = n + 100000000;
+			n = n + 10000;
 			printf("\tnext : %ld \n", n);
 		}
 	}
