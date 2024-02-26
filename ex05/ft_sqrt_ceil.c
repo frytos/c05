@@ -35,35 +35,35 @@ int	ft_sqrt_ceil(int nb)
 // 	(void)argc;
 //     printf("%d",ft_sqrt_ceil(atoi(argv[1])));
 // }
-int main(void)
-{
-	int n = 0;
-	while (n < 2147483647)
-	{	
-		printf("n = %d\tc = %d\n", n, ft_sqrt_ceil(n));
-		n++;
-	}
-}
 // int main(void)
 // {
 // 	int n = 0;
-// 	int found;
-// 	clock_t t;
-// 	double time_taken;
-// 	clock_t t_launch;
-// 	t_launch = clock();
-// 	while (1)
+// 	while (n < 2147483647)
 // 	{	
-// 		found = ft_sqrt(n);
-// 		if (found)
-// 		{	
-			
-// 			t = clock() - t;
-// 			time_taken = ((double)t)/CLOCKS_PER_SEC;
-// 			printf("\t%fs\t%fs\t#     %d \t-> sqrt() ->\t %d     #\n", ((double)(clock() - t_launch))/CLOCKS_PER_SEC, time_taken, n, found);
-// 			t = clock();
-// 		}
+// 		printf("n = %d\tc = %d\n", n, ft_sqrt_ceil(n));
 // 		n++;
 // 	}
-
 // }
+
+int main(void)
+{
+	long n = 0;
+	int found;
+	clock_t t;
+	double time_taken;
+	clock_t t_launch;
+	t_launch = clock();
+	while (n < 2147395600)
+	{	
+		found = ft_sqrt_ceil(n++);
+		if (found)
+		{		
+			t = clock() - t;
+			time_taken = ((double)t)/CLOCKS_PER_SEC;
+			printf("\t%fs\t%fs\t#     %ld \t-> sqrt() ->\t %d     #\n", ((double)(clock() - t_launch))/CLOCKS_PER_SEC, time_taken, n, found);
+			t = clock();
+			n = n + 123456789;
+			printf("\n\tnew start\t\t\t#     %ld \n", n);
+		}
+	}
+}

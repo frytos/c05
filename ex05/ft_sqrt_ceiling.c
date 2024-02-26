@@ -49,31 +49,31 @@ int	ft_sqrt(int nb)
 	return (-1);
 }
 
-int main(int argc, char **argv)
-{
-	(void)argc;
-    printf("%d",ft_sqrt(atoi(argv[1])));
-}
-// int main(void)
+// int main(int argc, char **argv)
 // {
-// 	int n = 0;
-// 	int found;
-// 	clock_t t;
-// 	double time_taken;
-// 	clock_t t_launch;
-// 	t_launch = clock();
-// 	while (1)
-// 	{	
-// 		found = ft_sqrt(n);
-// 		if (found)
-// 		{	
-			
-// 			t = clock() - t;
-// 			time_taken = ((double)t)/CLOCKS_PER_SEC;
-// 			printf("\t%fs\t%fs\t#     %d \t-> sqrt() ->\t %d     #\n", ((double)(clock() - t_launch))/CLOCKS_PER_SEC, time_taken, n, found);
-// 			t = clock();
-// 		}
-// 		n++;
-// 	}
-
+// 	(void)argc;
+//     printf("%d",ft_sqrt(atoi(argv[1])));
 // }
+
+int main(void)
+{
+	long n = 0;
+	int found;
+	clock_t t;
+	double time_taken;
+	clock_t t_launch;
+	t_launch = clock();
+	while (n < 2147395600)
+	{	
+		found = ft_sqrt(n++);
+		if (found)
+		{		
+			t = clock() - t;
+			time_taken = ((double)t)/CLOCKS_PER_SEC;
+			printf("\t%fs\t%fs\t#     %ld \t-> sqrt() ->\t %d     #\n", ((double)(clock() - t_launch))/CLOCKS_PER_SEC, time_taken, n, found);
+			t = clock();
+			n = n + 123456789;
+			printf("\n\tnew start\t\t\t#     %ld \n", n);
+		}
+	}
+}
