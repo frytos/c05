@@ -22,12 +22,16 @@ int	ft_is_prime(int nb)
 
 	if (nb <= 1)
 		return (0);
-	i = 2;
+	else if (nb <= 3)
+		return (1);
+	if (nb % 2 == 0 || nb % 3 == 0)
+		return (0);
+	i = 5;
 	while (i < nb)
 	{
 		if (nb % i == 0)
 			return (0);
-		i++;
+		i += 2;
 	}
 	return (1);
 }
@@ -38,28 +42,28 @@ int	ft_is_prime(int nb)
 // 	printf("%d", ft_is_prime(atoi(argv[1])));
 // }
 
-int main(void)
-{
-	long n = -1;
-	int found;
-	clock_t t;
-	double time_taken;
-	clock_t t_launch;
-	t_launch = clock();
-	while (n <= 2147483647)
-	{	
-		n++;
-		found = ft_is_prime(n);
-		if (found)
-		{		
-			t = clock() - t;
-			time_taken = ((double)t)/CLOCKS_PER_SEC;
-			printf("\t%fs\t%fs\t#     %ld\tis prime !"
-				, ((double)(clock() - t_launch))/CLOCKS_PER_SEC
-				, time_taken, n);
-			t = clock();
-			n = n + 100000000;
-			printf("\tnext : %ld \n", n);
-		}
-	}
-}
+// int main(void)
+// {
+// 	long n = -1;
+// 	int found;
+// 	clock_t t;
+// 	double time_taken;
+// 	clock_t t_launch;
+// 	t_launch = clock();
+// 	while (n <= 2147483647)
+// 	{	
+// 		n++;
+// 		found = ft_is_prime(n);
+// 		if (found)
+// 		{		
+// 			t = clock() - t;
+// 			time_taken = ((double)t)/CLOCKS_PER_SEC;
+// 			printf("\t%fs\t%fs\t#     %ld\tis prime !"
+// 				, ((double)(clock() - t_launch))/CLOCKS_PER_SEC
+// 				, time_taken, n);
+// 			t = clock();
+// 			n = n + 100000000;
+// 			printf("\tnext : %ld \n", n);
+// 		}
+// 	}
+// }

@@ -18,7 +18,7 @@ int	ft_is_prime(int nb);
 int	ft_is_prime(int nb)
 {
 	int	i;
-	
+
 	if (nb <= 1)
 		return (0);
 	i = 2;
@@ -31,26 +31,25 @@ int	ft_is_prime(int nb)
 	return (1);
 }
 
-void print_prime(void)
+void	print_prime(void)
 {
-	unsigned long long explorer;
-	unsigned long long n;
+	unsigned long long	explorer;
+	unsigned long long	n;
 
 	explorer = 0;
 	n = 0;
-
-	while(1)
+	while (1)
 	{
-		if(ft_is_prime(explorer))
+		if (ft_is_prime(explorer))
 		{
 			n++;
 			printf("--#-- %llu   -> %llu\n", n, explorer);
 		}
-		explorer ++;
+		explorer++;
 	}
 }
 
-int main(void)
+int	main(void)
 {
 	print_prime();
 }

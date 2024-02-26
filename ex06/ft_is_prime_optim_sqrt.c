@@ -34,9 +34,9 @@ int	ft_is_prime(int nb)
 	
 	while (i <= nb_sqrt)
 	{
-		if (nb % i == 0 || (nb + 2) % i == 0)
+		if (nb % i == 0)
 			return (0);
-		i += 6;
+		i += 2;
 	}
 	return (1);
 }
@@ -94,12 +94,12 @@ int main(void)
 		{		
 			t = clock() - t;
 			time_taken = ((double)t)/CLOCKS_PER_SEC;
-			printf("\t%fs\t%fs\t#     %ld\tis prime !\n"
+			printf("\t%fs\t%fs\t#     %ld\tis prime !"
 				, ((double)(clock() - t_launch))/CLOCKS_PER_SEC
 				, time_taken, n);
 			t = clock();
 			n = n + 100000000;
-			printf("\n\tnew start\t\t\t#     %ld \n", n);
+			printf("\tnext : %ld \n", n);
 		}
 	}
 }
