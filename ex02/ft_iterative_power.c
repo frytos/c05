@@ -18,6 +18,8 @@ int	ft_iterative_power(int nb, int power)
 {
 	int	result;
 
+	if (power < 0)
+		return (0);
 	if (nb == 0 && power == 0)
 		return (1);
 	result = 1;
@@ -28,6 +30,6 @@ int	ft_iterative_power(int nb, int power)
 
 // int	main(int argc, char *argv[])
 // {
-// 	printf("pow(%s, %s) = %d", argv[argc - 2], argv[argc - 1], 
+// 	printf("pow(%s, %s) = %d\n", argv[argc - 2], argv[argc - 1], 
 // 		ft_iterative_power(atoi(argv[1]), atoi(argv[2])));
 // }
