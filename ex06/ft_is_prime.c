@@ -33,7 +33,6 @@ int	ft_is_prime(int nb)
 		return (0);
 	i = 5;
 	nb_sqrt = ft_sqrt_ceil(nb);
-	
 	while (i <= nb_sqrt)
 	{
 		if (nb % i == 0)
@@ -80,28 +79,28 @@ int	reduce_windows_and_get_sqrt(int nb, int floor, int ceiling, int explorer)
 // 	printf("%d", ft_is_prime(atoi(argv[1])));
 // }
 
-int main(void)
-{
-	long n = -1;
-	int found;
-	clock_t t;
-	double time_taken;
-	clock_t t_launch;
-	t_launch = clock();
-	while (n <= 2147483647)
-	{	
-		n++;
-		found = ft_is_prime(n);
-		if (found)
-		{		
-			t = clock() - t;
-			time_taken = ((double)t)/CLOCKS_PER_SEC;
-			printf("\t%fs\t%fs\t#     %ld\tis prime !"
-				, ((double)(clock() - t_launch))/CLOCKS_PER_SEC
-				, time_taken, n);
-			t = clock();
-			n = n + 10000;
-			printf("\tnext : %ld \n", n);
-		}
-	}
-}
+// int main(void)
+// {
+// 	long n = -1;
+// 	int found;
+// 	clock_t t;
+// 	double time_taken;
+// 	clock_t t_launch;
+// 	t_launch = clock();
+// 	while (n <= 2147483647)
+// 	{	
+// 		n++;
+// 		found = ft_is_prime(n);
+// 		if (found)
+// 		{		
+// 			t = clock() - t;
+// 			time_taken = ((double)t)/CLOCKS_PER_SEC;
+// 			printf("\t%fs\t%fs\t#     %ld\tis prime !"
+// 				, ((double)(clock() - t_launch))/CLOCKS_PER_SEC
+// 				, time_taken, n);
+// 			t = clock();
+// 			n = n + 10000;
+// 			printf("\tnext : %ld \n", n);
+// 		}
+// 	}
+// }
