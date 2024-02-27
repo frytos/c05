@@ -102,7 +102,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-// int	main(int argc, char *argv[])
+// int	main(void)
 // {
 // 	int n = ft_ten_queens_puzzle();
 // 	printf("Nb of solutions : %d", n);
