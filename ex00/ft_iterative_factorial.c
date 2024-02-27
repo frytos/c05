@@ -27,8 +27,16 @@ int	ft_iterative_factorial(int nb)
 	return (result);
 }
 
-int	main(int argc, char *argv[])
-{
-	printf("fact : %d, result = %d\n", atoi(argv[argc - 1]),
-		ft_iterative_factorial(atoi(argv[argc - 1])));
-}
+// int	main(int argc, char *argv[])
+// {
+// 	printf("fact : %d, result = %d\n", atoi(argv[argc - 1]),
+// 		ft_iterative_factorial(atoi(argv[argc - 1])));
+// }
+
+// int	main(void)
+// {
+// 	int n = -70;
+// 	while (++n < 13)
+// 		printf("Factorial %d = %d\n", n,
+// 			ft_iterative_factorial(n));
+// }
