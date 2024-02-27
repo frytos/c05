@@ -18,7 +18,7 @@ int	ft_recursive_factorial(int nb)
 {
 	if (nb > 1)
 		return (nb * ft_recursive_factorial(nb - 1));
-	else if (nb < 1)
+	else if (nb < 0)
 		return (0);
 	else
 		return (1);
@@ -28,4 +28,12 @@ int	ft_recursive_factorial(int nb)
 // {
 // 	printf("fact : %s, result = %d\n", argv[argc - 1],
 // 		ft_recursive_factorial(atoi(argv[argc - 1])));
+// }
+
+// int	main(void)
+// {
+// 	int n = -70;
+// 	while (++n < 13)
+// 		printf("Factorial %d = %d\n", n,
+// 			ft_recursive_factorial(n));
 // }
